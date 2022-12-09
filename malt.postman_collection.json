@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "f00c544e-ef34-46a5-8622-a689c3cd1048",
+		"name": "Malt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9869474"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const payload = pm.response.json();",
+							"",
+							"pm.collectionVariables.set('accessToken', payload.accessToken);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"clientId\" : \"o2V0DrjTqpeCFu6lq49J60KHlgk3xmja\",\n  \"username\" : \"YOUR_EMAIL\",\n  \"grantType\" : \"password\",\n  \"password\" : \"YOUR_PASSWORD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/oauth/token",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile (Me)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/profiles/me",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/users/me",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me Statistics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/profiles/me/statistics",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me",
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Missions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/missions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"missions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Conversations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/conversations",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"conversations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/users/617a93f9531d81238d2f29d2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"617a93f9531d81238d2f29d2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Price",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hidden\": \"false\",\n    \"price\": 400\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/profiles/me/price",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Visibility details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/profiles/me/visibility-details",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me",
+						"visibility-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Achievments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/profiles/me/achievements",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me",
+						"achievements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Availibility",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Malt/3286 CFNetwork/1399 Darwin/22.1.0",
+						"type": "text"
+					},
+					{
+						"key": "X-MobileType",
+						"value": "IOS",
+						"type": "text"
+					},
+					{
+						"key": "X-Unity-Breaking-Change-API-Version",
+						"value": "V6",
+						"type": "text"
+					},
+					{
+						"key": "Api-Key",
+						"value": "{{clientId}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"availabilityTypeIfAvailable\": \"FULL_TIME\",\n    \"availableNow\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/profiles/me/availability",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profiles",
+						"me",
+						"availability"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": ""
+		}
+	]
+}
